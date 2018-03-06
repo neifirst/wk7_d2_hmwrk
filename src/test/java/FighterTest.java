@@ -16,7 +16,7 @@ public class FighterTest {
     public void setUp() throws Exception {
         fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD);
         special = new ArrayList<>();
-        enemy = new Enemy("Goblin", 30, 0, 15, 9);
+        enemy = new Goblin("Goblin", 30, 15);
     }
 
     @Test

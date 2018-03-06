@@ -1,22 +1,18 @@
-public class Enemy {
+public abstract class Enemy {
 
     private String classType;
     private int hpMax;
     private int hp;
-    private int mpMax;
-    private int mp;
     private int attack;
-    private int ac;
+    private int hit;
 
 
-    public Enemy(String classType, int hpMax, int mpMax, int attack, int ac) {
+    public Enemy(String classType, int hpMax, int attack) {
         this.classType = classType;
         this.hpMax = hpMax;
         this.hp = this.getHpMax();
-        this.mpMax = mpMax;
-        this.mp = this.getMpMax();
         this.attack = attack;
-        this.ac = ac;
+        this.hit = 0;
     }
 
     public String getClassType() {
@@ -35,28 +31,12 @@ public class Enemy {
         this.hpMax = hpMax;
     }
 
-    public int getMpMax() {
-        return mpMax;
-    }
-
-    public void setMpMax(int mpMax) {
-        this.mpMax = mpMax;
-    }
-
     public int getAttack() {
         return attack;
     }
 
     public void setAttack(int attack) {
         this.attack = attack;
-    }
-
-    public int getAc() {
-        return ac;
-    }
-
-    public void setAc(int ac) {
-        this.ac = ac;
     }
 
     public int getHp() {
@@ -67,11 +47,17 @@ public class Enemy {
         this.hp = hp;
     }
 
-    public int getMp() {
-        return mp;
+    public int getHit() {
+        return hit;
     }
 
-    public void setMp(int mp) {
-        this.mp = mp;
+    public void setHit(int hit) {
+        this.hit = hit;
+    }
+
+    public int attack(Hero hero) {
+        this.hit = this.getAttack();
+        hero.setHp(hero.getHp() - this.getHit());
+        return this.getHit();
     }
 }

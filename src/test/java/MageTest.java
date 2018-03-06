@@ -15,7 +15,7 @@ public class MageTest {
     public void setUp() throws Exception {
         mage = new Mage("Xan", "Mage", 40, 4, WeaponTypes.STAFF);
         spells = new ArrayList<>();
-        enemy = new Enemy("Goblin", 30, 0, 15, 9);
+        enemy = new Goblin("Goblin", 30, 15);
     }
 
     @Test

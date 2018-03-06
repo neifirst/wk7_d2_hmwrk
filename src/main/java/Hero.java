@@ -3,6 +3,7 @@ public abstract class Hero {
     private String name;
     private String classType;
     private int hpMax;
+    private int hp;
     private int baseAttack;
     private WeaponTypes weapon;
     private int xp;
@@ -13,6 +14,7 @@ public abstract class Hero {
         this.name = name;
         this.classType = classType;
         this.hpMax = hpMax;
+        this.hp = this.getHpMax();
         this.baseAttack = baseAttack;
         this.weapon = weapon;
         this.xp = 0;
@@ -34,6 +36,22 @@ public abstract class Hero {
     public void setClassType(String classType) {
         this.classType = classType;
 
+    }
+
+    public int getHpMax() {
+        return hpMax;
+    }
+
+    public void setHpMax(int hpMax) {
+        this.hpMax = hpMax;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public int getBaseAttack() {

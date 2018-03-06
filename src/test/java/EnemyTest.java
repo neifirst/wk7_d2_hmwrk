@@ -3,11 +3,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class HeroTest {
+public class EnemyTest {
 
-    Hero hero;
     Enemy enemy;
-
+    Hero hero;
 
     @Before
     public void setUp() throws Exception {
@@ -16,10 +15,10 @@ public class HeroTest {
     }
 
     @Test
-    public void canPrimaryAttack() {
-        hero.primaryAttack(enemy);
-        assertEquals(22, hero.getHit());
-        assertEquals(8, enemy.getHp());
+    public void canAttack() {
+        enemy.attack(hero);
+        assertEquals(15, enemy.getHit());
+        assertEquals(45, hero.getHp());
 
     }
 }
