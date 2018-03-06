@@ -11,13 +11,13 @@ public class HeroTest {
 
     @Before
     public void setUp() throws Exception {
-        hero = new Fighter("Minsc", "Paladin", 60, 0, 10, WeaponTypes.SWORD, 10);
+        hero = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD);
         enemy = new Enemy("Goblin", 30, 0, 15, 9);
     }
 
     @Test
     public void canPrimaryAttack() {
-        hero.attack(1, enemy);
+        hero.primaryAttack(enemy);
         assertEquals(22, hero.getHit());
         assertEquals(8, enemy.getHp());
 

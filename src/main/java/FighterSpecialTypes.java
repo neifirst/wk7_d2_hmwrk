@@ -1,7 +1,7 @@
 public enum FighterSpecialTypes {
 
     BERZERK(40),
-    CLEAVE(20);
+    CLEAVE(30);
 
 
     private int special;
