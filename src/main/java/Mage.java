@@ -5,7 +5,7 @@ public class Mage extends Hero {
     private ArrayList<MageSpellTypes> spells;
     private int secondaryHit;
 
-    public Mage(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon) {
+    public Mage(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon, ArrayList<MageSpellTypes> spells) {
         super(name, classType, hpMax, baseAttack, weapon);
         this.spells = new ArrayList<>();
         this.secondaryHit = 0;

@@ -9,14 +9,14 @@ import static org.junit.Assert.assertFalse;
 public class FighterTest {
 
     Fighter fighter;
-    ArrayList<FighterSpecialTypes> special;
+    ArrayList<FighterSpecialTypes> fighterSpecials;
     Enemy enemy;
 
     @Before
     public void setUp() throws Exception {
-        fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD);
-        special = new ArrayList<>();
-        enemy = new Goblin("Goblin", 30, 15);
+        fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD, fighterSpecials);
+        fighterSpecials = new ArrayList<>();
+        enemy = new Goblin("Goblin", 30, 15, 5, 10);
     }
 
     @Test

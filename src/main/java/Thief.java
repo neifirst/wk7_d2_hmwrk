@@ -5,7 +5,7 @@ public class Thief extends Hero {
     private ArrayList<ThiefSpecialTypes> specials;
     private int secondaryHit;
 
-    public Thief(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon) {
+    public Thief(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon, ArrayList<ThiefSpecialTypes> specials) {
         super(name, classType, hpMax, baseAttack, weapon);
         this.specials = new ArrayList<>();
         this.secondaryHit = 0;

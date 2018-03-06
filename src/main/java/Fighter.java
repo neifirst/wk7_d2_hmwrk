@@ -6,7 +6,7 @@ public class Fighter extends Hero {
     private int secondaryHit;
 
 
-    public Fighter(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon) {
+    public Fighter(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon, ArrayList<FighterSpecialTypes> specials) {
         super(name, classType, hpMax, baseAttack, weapon);
         this.specials = new ArrayList<>();
         this.secondaryHit = 0;

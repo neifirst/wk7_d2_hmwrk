@@ -10,22 +10,31 @@ public class PartyTest {
     Hero fighter;
     Hero cleric;
     Hero mage;
+    ArrayList<FighterSpecialTypes> fighterSpecials;
+    ArrayList<ClericSpellTypes> clericSpells;
+    ArrayList<MageSpellTypes> mageSpells;
+    ArrayList<ThiefSpecialTypes> thiefSpecials;
     Hero thief;
     ArrayList<Hero> heroes;
     int gold;
     Party party;
+    Enemy goblin;
 
     @Before
     public void setUp() throws Exception {
-        fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD);
-        cleric = new Cleric("Branwen", "Cleric", 50, 8, WeaponTypes.MACE);
-        mage = new Mage("Xan", "Mage", 35, 4, WeaponTypes.STAFF);
-        thief = new Thief("Ellie", "Thief", 45, 7, WeaponTypes.LONGBOW);
+        fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD, fighterSpecials);
+        cleric = new Cleric("Branwen", "Cleric", 50, 8, WeaponTypes.MACE, clericSpells);
+        mage = new Mage("Xan", "Mage", 35, 4, WeaponTypes.STAFF, mageSpells);
+        mageSpells = new ArrayList<>();
+        thief = new Thief("Ellie", "Thief", 45, 7, WeaponTypes.LONGBOW, thiefSpecials);
 
         heroes = new ArrayList<>();
         gold = 100;
 
         party = new Party(heroes, gold);
+
+        goblin = new Goblin("Goblin", 70, 15, 5, 10);
+
 
     }
 
@@ -59,9 +68,40 @@ public class PartyTest {
         assertEquals(0, party.getNoOfPartyMembers());
     }
 
-//    @Test
-//    public void canRest() {
-//        party.rest();
-//        assertEquals(, stereo.getVolume());
-//    }
+    @Test
+    public void partyCanAttack() {
+        party.addHero(fighter);
+        party.addHero(cleric);
+        party.addHero(mage);
+        party.addHero(thief);
+
+        party.attackRound(goblin);
+
+        assertEquals(5, goblin.getHp());
+    }
+
+    @Test
+    public void partyCanPrimaryAttackWithOneHero() {
+        party.addHero(fighter);
+        party.addHero(cleric);
+        party.addHero(mage);
+        party.addHero(thief);
+
+        party.primaryAttack(fighter, goblin);
+
+        assertEquals(48, goblin.getHp());
+    }
+
+    @Test
+    public void partyCanSecondaryAttackWithOneHero() {
+        party.addHero(fighter);
+        party.addHero(cleric);
+        party.addHero(mage);
+        party.addHero(thief);
+
+
+        party.secondaryAttack(mage, goblin);
+
+        assertEquals(50, goblin.getHp());
+    }
 }

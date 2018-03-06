@@ -8,23 +8,23 @@ import static org.junit.Assert.assertEquals;
 public class MageTest {
 
     Mage mage;
-    ArrayList<MageSpellTypes> spells;
+    ArrayList<MageSpellTypes> mageSpells;
     Enemy enemy;
 
     @Before
     public void setUp() throws Exception {
-        mage = new Mage("Xan", "Mage", 40, 4, WeaponTypes.STAFF);
-        spells = new ArrayList<>();
-        enemy = new Goblin("Goblin", 30, 15);
+        mage = new Mage("Xan", "Mage", 40, 4, WeaponTypes.STAFF, mageSpells);
+        mageSpells = new ArrayList<>();
+        enemy = new Goblin("Goblin", 30, 15, 5, 10);
     }
 
     @Test
-    public void canGetSpecialsCount() {
+    public void canGetSpellsCount() {
         assertEquals(0, mage.spellCount());
     }
 
     @Test
-    public void canGainSpecial() {
+    public void canGainSpell() {
         mage.gainSpell(MageSpellTypes.MAGICMISSILE);
         assertEquals(1, mage.spellCount());
     }

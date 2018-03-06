@@ -1,17 +1,20 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class EnemyTest {
 
     Enemy enemy;
     Hero hero;
+    private ArrayList<FighterSpecialTypes> fighterSpecials;
 
     @Before
     public void setUp() throws Exception {
-        hero = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD);
-        enemy = new Goblin("Goblin", 30, 15);
+        hero = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD, fighterSpecials);
+        enemy = new Goblin("Goblin", 30, 15, 5, 10);
     }
 
     @Test

@@ -5,7 +5,7 @@ public class Cleric extends Hero {
     private ArrayList<ClericSpellTypes> spells;
     private int secondaryHit;
 
-    public Cleric(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon) {
+    public Cleric(String name, String classType, int hpMax, int baseAttack, WeaponTypes weapon, ArrayList<ClericSpellTypes> spells) {
         super(name, classType, hpMax, baseAttack, weapon);
         this.spells = new ArrayList<>();
         this.secondaryHit = 0;

@@ -4,14 +4,18 @@ public abstract class Enemy {
     private int hpMax;
     private int hp;
     private int attack;
+    private int treasure;
+    private int expWorth;
     private int hit;
 
 
-    public Enemy(String classType, int hpMax, int attack) {
+    public Enemy(String classType, int hpMax, int attack, int treasure, int expWorth) {
         this.classType = classType;
         this.hpMax = hpMax;
         this.hp = this.getHpMax();
         this.attack = attack;
+        this.treasure = treasure;
+        this.expWorth = expWorth;
         this.hit = 0;
     }
 
@@ -37,6 +41,14 @@ public abstract class Enemy {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    public int getTreasure() {
+        return treasure;
+    }
+
+    public int getExpWorth() {
+        return expWorth;
     }
 
     public int getHp() {
