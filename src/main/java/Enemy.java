@@ -72,4 +72,8 @@ public abstract class Enemy {
         hero.setHp(hero.getHp() - this.getHit());
         return this.getHit();
     }
+
+    public String die() {
+        return this.getClassType() + " is dead!";
+    }
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Party {
+public class Party implements IRest {
 
     private ArrayList<Hero> heroes;
     private int gold;
@@ -14,8 +14,8 @@ public class Party {
         return gold;
     }
 
-    public void setGold(int gold) {
-        this.gold = gold;
+    public void changeGold(int gold) {
+        this.gold = this.gold + gold;
     }
 
     public int getNoOfPartyMembers() {
@@ -55,5 +55,18 @@ public class Party {
                 thief.secondaryAttack(enemy);
             }
 
+    }
+
+    public void getGoldAndXp(Enemy enemy) {
+        this.changeGold(enemy.getTreasure());
+
+        for (Hero hero : heroes) {
+            hero.setXp(hero.getXp() + enemy.getExpWorth());
+        }
+    }
+
+    @Override
+    public String rest() {
+        return "You have disturbing dreams of code from the abyss...";
     }
 }

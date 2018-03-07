@@ -1,4 +1,4 @@
 public interface ILevelUp {
 
-    String levelUp(Hero hero);
+    public String levelUp(Hero hero);
 }

@@ -28,7 +28,7 @@ public class PartyTest {
         thief = new Thief("Ellie", "Thief", 45, 7, WeaponTypes.LONGBOW, thiefSpecials);
         mageSpells = new ArrayList<>();
         heroes = new ArrayList<>();
-        gold = 100;
+        gold = 0;
         party = new Party(heroes, gold);
         goblin = new Goblin("Goblin", 70, 15, 5, 10);
 
@@ -37,13 +37,13 @@ public class PartyTest {
 
     @Test
     public void canGetGold() {
-        assertEquals(100, party.getGold());
+        assertEquals(0, party.getGold());
     }
 
     @Test
     public void canSetGold() {
-        party.setGold(120);
-        assertEquals(120, party.getGold());
+        party.changeGold(5);
+        assertEquals(5, party.getGold());
     }
 
     @Test
@@ -106,5 +106,30 @@ public class PartyTest {
         party.secondaryAttack(mage, goblin);
 
         assertEquals(50, goblin.getHp());
+    }
+
+    @Test
+    public void canGetGoldAndXp() {
+        party.addHero(fighter);
+        party.addHero(cleric);
+        party.addHero(mage);
+        party.addHero(thief);
+
+        party.getGoldAndXp(goblin);
+
+        assertEquals(5, party.getGold());
+
+        for (Hero hero : heroes) {
+            if (hero instanceof Mage) {
+                Mage mage = (Mage) hero;
+                assertEquals(10, hero.getXp());
+            }
+        }
+
+    }
+
+    @Test
+    public void canRest() {
+        assertEquals("You have disturbing dreams of code from the abyss...", party.rest());
     }
 }

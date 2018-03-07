@@ -24,4 +24,9 @@ public class EnemyTest {
         assertEquals(45, hero.getHp());
 
     }
+
+    @Test
+    public void canDie() {
+        assertEquals("Goblin is dead!", enemy.die());
+    }
 }

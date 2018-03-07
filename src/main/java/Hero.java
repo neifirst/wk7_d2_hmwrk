@@ -88,9 +88,12 @@ public abstract class Hero implements ILevelUp {
     }
 
     public int primaryAttack(Enemy enemy) {
-        this.hit = this.getBaseAttack() + (this.getWeapon().getDamage());
-        enemy.setHp(enemy.getHp() - this.getHit());
-        return this.getHit();
+        if (enemy.getHp() > 0) {
+            this.hit = this.getBaseAttack() + (this.getWeapon().getDamage());
+            enemy.setHp(enemy.getHp() - this.getHit());
+            return this.getHit();
+        }
+        return this.hit;
     }
 
     @Override
