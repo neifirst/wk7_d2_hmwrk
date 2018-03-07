@@ -10,11 +10,11 @@ public class PartyTest {
     Hero fighter;
     Hero cleric;
     Hero mage;
+    Hero thief;
     ArrayList<FighterSpecialTypes> fighterSpecials;
     ArrayList<ClericSpellTypes> clericSpells;
     ArrayList<MageSpellTypes> mageSpells;
     ArrayList<ThiefSpecialTypes> thiefSpecials;
-    Hero thief;
     ArrayList<Hero> heroes;
     int gold;
     Party party;
@@ -25,14 +25,11 @@ public class PartyTest {
         fighter = new Fighter("Minsc", "Paladin", 60, 10, WeaponTypes.SWORD, fighterSpecials);
         cleric = new Cleric("Branwen", "Cleric", 50, 8, WeaponTypes.MACE, clericSpells);
         mage = new Mage("Xan", "Mage", 35, 4, WeaponTypes.STAFF, mageSpells);
-        mageSpells = new ArrayList<>();
         thief = new Thief("Ellie", "Thief", 45, 7, WeaponTypes.LONGBOW, thiefSpecials);
-
+        mageSpells = new ArrayList<>();
         heroes = new ArrayList<>();
         gold = 100;
-
         party = new Party(heroes, gold);
-
         goblin = new Goblin("Goblin", 70, 15, 5, 10);
 
 
@@ -99,6 +96,12 @@ public class PartyTest {
         party.addHero(mage);
         party.addHero(thief);
 
+        for (Hero hero : heroes) {
+            if (hero instanceof Mage) {
+                Mage mage = (Mage) hero;
+                mage.gainSpell(MageSpellTypes.MAGICMISSILE);
+            }
+        }
 
         party.secondaryAttack(mage, goblin);
 

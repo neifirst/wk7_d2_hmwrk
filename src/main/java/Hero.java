@@ -1,4 +1,4 @@
-public abstract class Hero {
+public abstract class Hero implements ILevelUp {
 
     private String name;
     private String classType;
@@ -91,5 +91,11 @@ public abstract class Hero {
         this.hit = this.getBaseAttack() + (this.getWeapon().getDamage());
         enemy.setHp(enemy.getHp() - this.getHit());
         return this.getHit();
+    }
+
+    @Override
+    public String levelUp(Hero hero) {
+        name = this.name;
+        return name + " has levelled up!";
     }
 }

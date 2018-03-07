@@ -25,4 +25,9 @@ public class HeroTest {
         assertEquals(8, enemy.getHp());
 
     }
+
+    @Test
+    public void canLevelUp() {
+        assertEquals("Minsc has levelled up!", hero.levelUp(hero));
+    }
 }

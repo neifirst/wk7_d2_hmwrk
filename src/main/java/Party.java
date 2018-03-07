@@ -43,19 +43,15 @@ public class Party {
     public void secondaryAttack(Hero hero, Enemy enemy) {
             if (hero instanceof Mage) {
                 Mage mage = (Mage) hero;
-                mage.gainSpell(MageSpellTypes.MAGICMISSILE);
                 mage.secondaryAttack(enemy);
             }else if(hero instanceof Fighter){
                 Fighter fighter = (Fighter) hero;
-                fighter.gainSpecial(FighterSpecialTypes.CLEAVE);
                 fighter.secondaryAttack(enemy);
             }else if(hero instanceof Cleric) {
                 Cleric cleric = (Cleric) hero;
-                cleric.gainSpell(ClericSpellTypes.SMITE);
                 cleric.secondaryAttack(enemy);
             }else if(hero instanceof Thief) {
                 Thief thief = (Thief) hero;
-                thief.gainSpecial(ThiefSpecialTypes.RIPOSTE);
                 thief.secondaryAttack(enemy);
             }
 
